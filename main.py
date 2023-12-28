@@ -13,7 +13,7 @@ try:
     init_total_akses_menu_file = "init_akses_menu_vedita.xlsx"
     df_init = pd.read_excel(init_total_akses_menu_file, sheet_name='Sheet1')
 
-    sql = "select client_ip, app_name, endpoint, access_time FROM VEDITA_LOG_APP WHERE (endpoint LIKE '/vedita-cs-list-subcategory?id_category=%' OR endpoint LIKE '/open-ai%' OR endpoint LIKE '/antrean%') AND app_name = 'VEDITA' AND client_ip = '10.87.7.101' AND access_time BETWEEN '2023-11-15 00:00:00' AND CURRENT_TIMESTAMP  AND methods = 'GET' order by endpoint ASC;"
+    sql = "select client_ip, app_name, endpoint, access_time FROM VEDITA_LOG_APP WHERE (endpoint LIKE '/vedita-cs-list-subcategory?id_category=%' OR endpoint LIKE '/open-ai%' OR endpoint LIKE '/antrean%') AND app_name = 'VEDITA' AND client_ip = '10.87.7.101' OR client_ip = '10.87.11.29' AND access_time BETWEEN '2023-11-15 00:00:00' AND CURRENT_TIMESTAMP  AND methods = 'GET' order by endpoint ASC;"
     data = query(sql)
 
     tmp = []
